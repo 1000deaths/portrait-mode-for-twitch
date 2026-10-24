@@ -1,0 +1,18 @@
+Portrait Mode for Twitch
+
+This add-on contains code and stylesheets derived from FrankerFaceZ
+(https://github.com/FrankerFaceZ/FrankerFaceZ), Copyright 2016 Dan Salvato LLC,
+licensed under the Apache License, Version 2.0.
+
+Derived from FrankerFaceZ commit fe229ea (2026-10-20):
+- styles/*.scss: copied from src/sites/twitch-twilight/modules/css_tweaks/styles/
+  (portrait, portrait-chat, chat-fix, chat-no-animate, player-size, hide-side-nav).
+  Changes: renamed the `ffz--` class prefix and `--ffz-` custom property prefix
+  to `tpm--` / `--tpm-`, and removed the rule for FFZ's own chat card element.
+- src/routes.js: route table and matching rules from src/sites/twitch-twilight/index.js
+  and src/utilities/compat/fine-router.ts, reimplemented without dependencies.
+- src/logic.js: Portrait Mode decision logic from src/sites/twitch-twilight/modules/layout.js
+  and css_tweaks/index.js, reduced to FFZ's default values for its other features.
+- src/react.js: React tree search helpers modeled on src/utilities/compat/fine.ts.
+
+This add-on is not affiliated with or endorsed by FrankerFaceZ or Twitch.

@@ -1,0 +1,166 @@
+#root {
+	--tpm-player-width: calc(100vw - var(--tpm-portrait-extra-width));
+	--tpm-player-height: calc(calc(calc(var(--tpm-player-width) * 0.5625) + var(--tpm-portrait-extra-height)));
+	--tpm-theater-height: calc(calc(100vw * 0.5625) + var(--tpm-portrait-extra-height));
+	--tpm-chat-height: calc(100vh - var(--tpm-player-height));
+
+	& > div:first-child > div[class^="Layout-sc"] {
+		.tpm--portrait-invert & {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: var(--tpm-chat-height) !important;
+		}
+
+		height: var(--tpm-player-height) !important;
+	}
+
+	.channel-root__player--with-chat {
+		max-height: var(--tpm-player-height) !important;
+	}
+
+	.persistent-player.persistent-player__border--mini {
+		pointer-events: none;
+
+		body:not(.tpm--portrait-invert) & {
+			bottom: var(--tpm-chat-height) !important;
+		}
+
+		> * {
+			pointer-events: auto;
+		}
+	}
+
+	.picture-by-picture-player {
+		position: absolute;
+		z-index: 100;
+		top: 0;
+		right: 5rem;
+		height: 20vh;
+		width: calc(20vh * calc(16 / 9)) !important;
+	}
+
+	.persistent-player.persistent-player--theatre {
+		.tpm--portrait-invert & {
+			top: unset !important;
+			bottom: 0 !important;
+		}
+
+		body:not(.tpm--portrait-invert) & {
+			top: 0 !important;
+			bottom: unset !important;
+		}
+
+		left: 0 !important;
+		right: 0 !important;
+		height: var(--tpm-theater-height) !important;
+		width: 100% !important;
+	}
+
+	.whispers--theatre-mode {
+		bottom: 0 !important;
+		right: 0 !important;
+	}
+
+	.channel-root__right-column--expanded {
+		min-height: unset !important;
+	}
+
+	.right-column {
+		display: unset !important;
+		position: fixed !important;
+		z-index: 2000;
+		bottom: 0 !important;
+		left: 0 !important;
+		right: 0 !important;
+		height: var(--tpm-chat-height) !important;
+		width: unset !important;
+
+		body:not(.tpm--portrait-invert) & {
+			top: unset !important;
+			bottom: 0 !important;
+			border-top: 1px solid var(--color-border-base);
+		}
+
+		.tpm--portrait-invert & {
+			top: 0 !important;
+			bottom: unset !important;
+			border-bottom: 1px solid var(--color-border-base);
+		}
+
+		& > .tw-full-height {
+			width: 100% !important;
+		}
+
+		.right-column__toggle-visibility {
+			//position: fixed !important;
+
+			/*body:not(.tpm--portrait-invert) & {
+				top: 6.5rem;
+			}
+
+			.tpm--portrait-invert & {
+				top: calc(var(--tpm-chat-height) + 6.5rem);
+			}
+
+			right: .5rem;
+			left: unset !important;*/
+			transform: rotate(90deg);
+		}
+
+		.emote-picker__nav-content-overflow,
+		.emote-picker__tab-content {
+			max-height: calc(var(--tpm-chat-height) - 26rem);
+		}
+
+		.emote-picker__nav-content-overflow {
+			height: 100% !important;
+		}
+
+		&.right-column--theatre {
+			.tpm--portrait-invert & {
+				bottom: unset !important;
+			}
+
+			body:not(.tpm--portrait-invert) & {
+				top: unset !important;
+			}
+
+			height: calc(100vh - var(--tpm-theater-height)) !important;
+
+			.emote-picker__nav-content-overflow,
+			.emote-picker__tab-content {
+				max-height: calc(calc(100vh - var(--tpm-theater-height)) - 26rem);
+			}
+		}
+
+		.video-chat {
+			flex-basis: unset;
+		}
+
+		.video-watch-page__right-column,
+		.clips-watch-page__right-column,
+		.channel-videos__right-column,
+
+		.channel-clips__sidebar,
+		.channel-events__sidebar,
+		.channel-follow-listing__right-column,
+		.channel-root__right-column,
+		.channel-page__right-column {
+			width: 100% !important;
+
+			& > div {
+				border-left: none !important;
+			}
+		}
+	}
+}
+
+[data-popper-reference-hidden="true"] {
+	&:has([data-test-selector="chat-rules-ok-button"]),
+	&:has([data-a-target="chat-settings-balloon"]),
+	&:has(.tw-tooltip-wrapper) {
+		opacity: 1 !important;
+	}
+}

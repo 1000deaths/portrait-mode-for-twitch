@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "name": "Portrait Mode for Twitch",
+  "version": "1.0.0",
+  "description": "Shows Twitch chat beneath the player when the window is taller than it is wide. A standalone copy of FrankerFaceZ's Portrait Mode.",
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "portrait-mode-for-twitch@1000deaths",
+      "strict_min_version": "128.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.twitch.tv/*"],
+      "js": [
+        "src/settings.js",
+        "src/routes.js",
+        "src/logic.js",
+        "src/react.js",
+        "src/styles.js",
+        "src/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_action": {
+    "default_title": "Portrait Mode for Twitch",
+    "default_icon": "icons/icon.svg",
+    "default_popup": "popup/popup.html"
+  },
+  "options_ui": {
+    "page": "popup/popup.html"
+  }
+}

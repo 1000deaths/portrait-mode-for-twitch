@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portrait Mode for Twitch</title>
+	<link rel="stylesheet" href="popup.css">
+</head>
+<body>
+	<header>
+		<img src="../icons/icon.svg" alt="" width="20" height="20">
+		<h1>Portrait Mode for Twitch</h1>
+	</header>
+
+	<form id="settings" autocomplete="off">
+		<label class="row check">
+			<input type="checkbox" name="enabled">
+			<span>
+				<strong>Enable Portrait Mode</strong>
+				<small>In Portrait Mode, chat will be displayed beneath the player when the window is taller than it is wide.</small>
+			</span>
+		</label>
+
+		<label class="row check">
+			<input type="checkbox" name="invert">
+			<span>
+				<strong>When in portrait mode, place chat at the top.</strong>
+			</span>
+		</label>
+
+		<label class="row field">
+			<span>
+				<strong>Portrait Mode Threshold</strong>
+				<small>This is the Width to Height ratio at which point Portrait Mode will begin to activate.</small>
+			</span>
+			<input type="text" name="threshold" inputmode="decimal" spellcheck="false">
+		</label>
+
+		<label class="row check">
+			<input type="checkbox" name="compactChat">
+			<span>
+				<strong>Use compact chat in Portrait Mode.</strong>
+				<small>When enabled, this minimizes the chat header and places the chat input box in line with the chat buttons in order to present a more compact chat able to display more lines with limited vertical space.</small>
+			</span>
+		</label>
+
+		<label class="row field">
+			<span>
+				<strong>Display Side Navigation</strong>
+			</span>
+			<select name="sideNav">
+				<option value="0">Never</option>
+				<option value="1">Always</option>
+				<option value="2">Hide in Portrait</option>
+			</select>
+		</label>
+	</form>
+
+	<footer>Based on FrankerFaceZ's Portrait Mode.</footer>
+
+	<script src="../src/settings.js"></script>
+	<script src="popup.js"></script>
+</body>
+</html>
