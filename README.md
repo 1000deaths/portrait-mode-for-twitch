@@ -1,6 +1,6 @@
 # Portrait Mode for Twitch
 
-A Firefox add-on that copies FrankerFaceZ's **Portrait Mode** on its own, without the rest of FFZ.
+A Zen Browser (or Firefox) add-on that copies FrankerFaceZ's **Portrait Mode** on its own, without the rest of FFZ.
 
 When your browser window is taller than it is wide, the player sits at the top at full width and chat fills the space underneath. Widen the window again and Twitch's normal side-by-side layout comes back.
 
